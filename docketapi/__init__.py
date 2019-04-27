@@ -29,29 +29,25 @@ class DocketClient:
 
         ::
 
-            from docket import DocketClient
+            from docketapi import DocketClient
 
-            # create docket client
-            client = DocketClient(
-                'https://192.168.1.1',
-                'username',
-                'password',
-                verify=False
-            )
+            # create a client
+            docket = DocketClient('https://rock_nsm_url', 'username', 'password', verify=False)
 
-            # send a query
-            my_query = client.query(
+            # perform a query
+            my_query = docket.query(
                 after='2019-04-20T21:07:59.689Z',
                 before='2019-04-30T21:07:59.689Z',
                 host=['151.101.68.223'],
-                proto_name='TCP'
+                proto_name='TCP',
+                port=['443']
             )
 
-            # get pcap
-            pcap = client.get_pcap(my_query)
+            # retrieve pcap
+            pcap = docket.get_pcap(my_query)
 
             # save pcap
-            client.save_pcap(pcap, filename='my_traffic.pcap')
+            docket.save_pcap(pcap, filename='my_traffic.pcap')
 
     """
     def __init__(self, base_url, username, password, verify=True, proxies=None):
