@@ -3,7 +3,7 @@
 import json
 import requests
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 QUERY_URI = 'app/docket/api/'
 GET_PCAP_URI = 'results/{pcap_id}/merged.pcap'
