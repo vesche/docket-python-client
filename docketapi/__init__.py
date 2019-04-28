@@ -1,3 +1,5 @@
+"""docketapi"""
+
 import json
 import requests
 
@@ -13,14 +15,14 @@ class DocketClient:
     Core class used for interacting with the Docket RESTful API.
 
     Args:
-        base_url (str): URL pointing to Docket instance
+        base_url (str): URL pointing to the ROCK NSM (or Docket) instance
         username (str): Authentication username
         password (str): Authentication password
         verify (bool): Verify SSL (ignored on HTTP). Disable to use self-signed certificates
         proxies (dict): Optional requests-style proxies dict
 
     Attributes:
-        base_url (str): Full RFC-1738 URL pointing to Docket instance
+        base_url (str): Full RFC-1738 URL pointing to the ROCK NSM (or Docket) instance
         query_url (str): URL pointing to Docket query endpoint
         username (str): Authentication username
         session (requests.sessions.Session): Requests session used for all outbound requests
@@ -71,7 +73,7 @@ class DocketClient:
         )
 
     def _get(self, uri):
-        """GET request for retrieving PCAP.
+        """GET request for retrieving PCAP
 
         Args:
             uri (str): URI to GET, this will be the PCAP endpoint
@@ -81,7 +83,7 @@ class DocketClient:
         return r.content
 
     def _post(self, data):
-        """POST request for performing queries.
+        """POST request for performing queries
 
         Args:
             data (dict): JSON payload query data to POST
