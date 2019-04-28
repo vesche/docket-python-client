@@ -1,7 +1,9 @@
-docketapi
-=========
+docket-python-client
+====================
 
 .. toctree::
-   Modules <modules.rst> 
-   :maxdepth: 4
+   :maxdepth: 2
+
+   readme
+   docketapi
 
