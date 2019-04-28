@@ -3,7 +3,7 @@
 import json
 import requests
 
-__version__ = '0.0.2'
+__version__ = '0.0.3'
 
 QUERY_URI = 'app/docket/api/'
 GET_PCAP_URI = 'results/{pcap_id}/merged.pcap'
@@ -54,8 +54,9 @@ class DocketClient:
     """
     def __init__(self, base_url, username, password, verify=True, proxies=None):
         self.base_url = base_url if base_url.endswith('/') else base_url + '/'
-        self.query_url = '{base}/{uri}'.format(base=self.base_url, uri=QUERY_URI)
+        self.query_url = self.base_url + QUERY_URI
         self.username = username
+        self.verify = verify
 
         self.session = requests.Session()
         self.session.auth = (username, password)
@@ -78,7 +79,7 @@ class DocketClient:
         Args:
             uri (str): URI to GET, this will be the PCAP endpoint
         """
-        r = self.session.request('GET', self.base_url + uri)
+        r = self.session.request('GET', self.base_url + uri, verify=self.verify)
         r.raise_for_status()
         return r.content
 
@@ -88,7 +89,7 @@ class DocketClient:
         Args:
             data (dict): JSON payload query data to POST
         """
-        r = self.session.request('POST', self.query_url, data=json.dumps(data))
+        r = self.session.request('POST', self.query_url, data=json.dumps(data), verify=self.verify)
         r.raise_for_status()
         return r.json()
 
