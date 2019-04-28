@@ -8,10 +8,13 @@ Docket Python Client
 .. image:: https://readthedocs.org/projects/docket-python-client/badge/?version=latest
     :target: http://docket-python-client.readthedocs.io/
 
-This is a Python client API for `Docket`_ which is a RESTful API for `Stenographer`_. This library is primarily for use with `ROCK NSM`_ to easily automate retrieval of network traffic for post-process analysis.
+This is a Python client API for `Docket`_ which is a RESTful API for `Stenographer`_.
 
 .. _Docket: https://github.com/rocknsm/docket
 .. _Stenographer: https://github.com/google/stenographer
+
+This library is primarily for use with `ROCK NSM`_ to easily automate retrieval of network traffic for post-process analysis.
+
 .. _ROCK NSM: https://rocknsm.io/
 
 
